@@ -1,6 +1,6 @@
 # Pizzas D'Barrio — Página web
 
-Sitio web de comida rápida (pizzas, hamburguesas, salchipapas, pollo broaster y alitas) con carrito de compras y pedidos por WhatsApp.
+Sitio web de comida rápida al estilo de una tienda online (tipo China Wok): encabezado con selector Delivery/Recojo y dirección, banners de promociones, categorías, carta con menú lateral, ventana de producto y carrito lateral con pedido por WhatsApp.
 
 ## Funciones
 - Slider de promociones (combo D'Barrio Broaster, Súper Grueso, pizza familiar).

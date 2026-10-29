@@ -3,256 +3,300 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pizzas D'Barrio | Pizzas · Broaster · Burgers</title>
-  <meta name="description" content="Pizzas D'Barrio: pizzas, hamburguesas, salchipapas, pollo broaster y alitas. Haz tu pedido por WhatsApp y paga con Yape." />
-  <meta name="theme-color" content="#FFB800" />
+  <title>Pizzas D'Barrio | Pide online · Delivery y recojo</title>
+  <meta name="description" content="Pizzas D'Barrio: pizzas, hamburguesas, salchipapas, pollo broaster y alitas. Pide online por WhatsApp y paga con Yape." />
+  <meta name="theme-color" content="#E30613" />
   <link rel="icon" href="assets/img/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <div class="checker" aria-hidden="true"></div>
+  <!-- ===== BARRA SUPERIOR ===== -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>🛵 Delivery y recojo en tienda</span>
+      <span class="topbar__sep">|</span>
+      <span>Paga con <b>Yape</b> al 923 433 817</span>
+    </div>
+  </div>
 
   <!-- ===== HEADER ===== -->
-  <header class="header">
+  <header class="header" id="header">
     <div class="container header__inner">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+
       <a href="#inicio" class="brand" aria-label="Pizzas D'Barrio, inicio">
-        <img src="assets/img/logo.png" alt="" width="56" height="56" />
-        <span class="brand__text">
-          <span class="brand__small">Pizzas</span>
-          <span class="brand__big">D'Barrio</span>
-        </span>
+        <img src="assets/img/logo.png" alt="Pizzas D'Barrio" width="64" height="64" />
       </a>
 
-      <nav class="nav" id="nav" aria-label="Principal">
-        <a href="#carta">Carta</a>
-        <a href="#promos">Promos</a>
-        <a href="#como-pedir">¿Cómo pedir?</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <div class="order-box">
+        <div class="order-mode" role="radiogroup" aria-label="Tipo de pedido">
+          <label><input type="radio" name="hdrMode" value="delivery" checked /><span>Delivery</span></label>
+          <label><input type="radio" name="hdrMode" value="recojo" /><span>Recojo</span></label>
+        </div>
+        <label class="order-address" id="hdrAddressWrap">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+          <input id="hdrAddress" placeholder="Ingresa tu dirección de entrega" autocomplete="street-address" aria-label="Dirección de entrega" />
+        </label>
+        <div class="order-pickup" id="hdrPickup" hidden>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 4h16l1 5a3 3 0 0 1-2 2.8V20H5v-8.2A3 3 0 0 1 3 9l1-5Zm3 9v5h4v-5H7Z"/></svg>
+          Recoge tu pedido en tienda
+        </div>
+      </div>
 
       <div class="header__actions">
-        <a class="btn btn--wa header__wa" href="https://wa.me/51923433817" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
-          923 433 817
+        <a class="header__phone" href="https://wa.me/51923433817" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+          <span><small>Pide al</small>923 433 817</span>
         </a>
-        <button class="cart-btn" id="cartOpen" aria-label="Abrir carrito">
-          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM5.2 4H2V2h4.6l.9 2H21a1 1 0 0 1 .9 1.4l-3.4 7A2 2 0 0 1 16.7 14H8.1l-1 2H19v2H5.6a1 1 0 0 1-.9-1.5L6.4 13 5.2 4Z"/></svg>
-          <span class="cart-btn__count" id="cartCount">0</span>
-        </button>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-          <span></span><span></span><span></span>
+        <button class="cart-btn" id="cartOpen" aria-label="Ver mi carrito">
+          <span class="cart-btn__icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM5.2 4H2V2h4.6l.9 2H21a1 1 0 0 1 .9 1.4l-3.4 7A2 2 0 0 1 16.7 14H8.1l-1 2H19v2H5.6a1 1 0 0 1-.9-1.5L6.4 13 5.2 4Z"/></svg>
+            <span class="cart-btn__count" id="cartCount">0</span>
+          </span>
+          <span class="cart-btn__text"><small>Mi carrito</small><b id="cartTotalHdr">S/ 0.00</b></span>
         </button>
       </div>
     </div>
+
+    <nav class="nav" id="nav" aria-label="Principal">
+      <div class="container nav__inner">
+        <a href="#inicio" class="is-active">Inicio</a>
+        <a href="#carta">Carta</a>
+        <a href="#promociones">Promociones</a>
+        <a href="#como-pedir">¿Cómo pedir?</a>
+        <a href="#contacto">Contáctanos</a>
+      </div>
+    </nav>
   </header>
 
   <main id="inicio">
-    <!-- ===== HERO SLIDER ===== -->
-    <section class="hero" id="promos" aria-label="Promociones">
-      <div class="hero__track" id="heroTrack">
-        <article class="slide slide--yellow is-active">
-          <div class="container slide__inner">
-            <div class="slide__text">
-              <span class="pill pill--black">¡Sabor que se comparte!</span>
+    <!-- ===== BANNERS ===== -->
+    <section class="hero container" aria-label="Promociones destacadas">
+      <div class="hero__viewport">
+        <div class="hero__track" id="heroTrack">
+          <article class="banner banner--yellow">
+            <div class="banner__text">
+              <span class="banner__kicker">¡Sabor que se comparte!</span>
               <h1>Pizzas · Broaster · Burgers</h1>
-              <p>Lo más rico del barrio, directo a tu mesa. Pide por WhatsApp y paga con Yape.</p>
-              <div class="slide__cta">
-                <a href="#carta" class="btn btn--red btn--lg">Ver la carta</a>
-                <a href="assets/carta-dbarrio.pdf" class="btn btn--outline btn--lg" target="_blank" rel="noopener">Descargar carta PDF</a>
-              </div>
+              <p>Lo más rico del barrio. Pide online y recibe en tu casa.</p>
+              <a href="#carta" class="btn btn--red">Ver carta</a>
             </div>
-            <div class="slide__art">
-              <img src="assets/img/hero-combo.jpg" alt="Ilustración de pizza, papas fritas y hamburguesa" />
-            </div>
-          </div>
-        </article>
+            <img class="banner__img" src="assets/img/hero-combo.jpg" alt="Pizza, papas fritas y hamburguesa" />
+          </article>
 
-        <article class="slide slide--red">
-          <div class="container slide__inner">
-            <div class="slide__text">
-              <span class="pill pill--yellow">Combo de la casa</span>
+          <article class="banner banner--red">
+            <div class="banner__text">
+              <span class="banner__kicker">Combo de la casa</span>
               <h2>D'Barrio Broaster</h2>
-              <p>1/4 broaster · salchicha · huevo · arroz · papas · ensalada.</p>
-              <div class="slide__price">S/ 16.00</div>
-              <div class="slide__cta">
-                <button class="btn btn--yellow btn--lg" data-quick-add="br-dbarrio">¡Lo quiero!</button>
-              </div>
+              <p>1/4 broaster · salchicha · huevo · arroz · papas · ensalada</p>
+              <div class="banner__price"><small>a solo</small> S/ 16.00</div>
+              <button class="btn btn--white" data-open="br-dbarrio">Pídelo ya</button>
             </div>
-            <div class="slide__art slide__art--icon" data-icon="chicken"></div>
-          </div>
-        </article>
+            <div class="banner__art" data-icon="chicken"></div>
+          </article>
 
-        <article class="slide slide--black">
-          <div class="container slide__inner">
-            <div class="slide__text">
-              <span class="pill pill--red">La más cargada</span>
-              <h2>Súper Grueso</h2>
+          <article class="banner banner--dark">
+            <div class="banner__text">
+              <span class="banner__kicker">La más cargada</span>
+              <h2>Hamburguesa Súper Grueso</h2>
               <p>Carne · tocino · plátano · queso · salchicha · huevo. Con papas y ensalada.</p>
-              <div class="slide__price">S/ 11.00</div>
-              <div class="slide__cta">
-                <button class="btn btn--yellow btn--lg" data-quick-add="hb-super-grueso">¡La quiero!</button>
-              </div>
+              <div class="banner__price"><small>a solo</small> S/ 11.00</div>
+              <button class="btn btn--red" data-open="hb-super-grueso">Pídelo ya</button>
             </div>
-            <div class="slide__art slide__art--icon" data-icon="burger"></div>
-          </div>
-        </article>
+            <div class="banner__art" data-icon="burger"></div>
+          </article>
 
-        <article class="slide slide--green">
-          <div class="container slide__inner">
-            <div class="slide__text">
-              <span class="pill pill--yellow">Todas incluyen café</span>
-              <h2>Pizza Familiar</h2>
-              <p>Americana, Hawaiana, Pepperoni o Brasileña. Versión especial con salami.</p>
-              <div class="slide__price"><small>desde</small> S/ 20.00</div>
-              <div class="slide__cta">
-                <a href="#cat-pizzas" class="btn btn--yellow btn--lg">Ver pizzas</a>
-              </div>
+          <article class="banner banner--orange">
+            <div class="banner__text">
+              <span class="banner__kicker">Todas incluyen café</span>
+              <h2>Pizzas familiares</h2>
+              <p>Americana, Hawaiana, Pepperoni o Brasileña. También en versión especial con salami.</p>
+              <div class="banner__price"><small>desde</small> S/ 20.00</div>
+              <a href="#cat-pizzas" class="btn btn--white">Ver pizzas</a>
             </div>
-            <div class="slide__art slide__art--icon" data-icon="pizza"></div>
-          </div>
-        </article>
+            <div class="banner__art" data-icon="pizza"></div>
+          </article>
+        </div>
+        <button class="hero__nav hero__nav--prev" id="heroPrev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
+        </button>
+        <button class="hero__nav hero__nav--next" id="heroNext" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg>
+        </button>
       </div>
-
-      <button class="hero__nav hero__nav--prev" id="heroPrev" aria-label="Promoción anterior">‹</button>
-      <button class="hero__nav hero__nav--next" id="heroNext" aria-label="Promoción siguiente">›</button>
-      <div class="hero__dots" id="heroDots" role="tablist" aria-label="Seleccionar promoción"></div>
+      <div class="hero__dots" id="heroDots" role="tablist" aria-label="Seleccionar banner"></div>
     </section>
 
-    <div class="checker" aria-hidden="true"></div>
+    <!-- ===== CATEGORÍAS ===== -->
+    <section class="section container">
+      <h2 class="section__title">¿Qué se te antoja hoy?</h2>
+      <div class="cats" id="catTiles"></div>
+    </section>
+
+    <!-- ===== PROMOCIONES ===== -->
+    <section class="section section--gray" id="promociones">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Promociones</h2>
+          <div class="slider-arrows">
+            <button class="round-btn" id="promoPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg></button>
+            <button class="round-btn" id="promoNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg></button>
+          </div>
+        </div>
+        <div class="promo-row" id="promoRow"></div>
+      </div>
+    </section>
 
     <!-- ===== CARTA ===== -->
-    <section class="menu" id="carta">
-      <div class="cat-bar" id="catBar">
-        <div class="container cat-bar__inner" id="catChips" role="tablist" aria-label="Categorías"></div>
+    <section class="section container" id="carta">
+      <div class="section__head">
+        <h2 class="section__title">Nuestra carta</h2>
+        <label class="search">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2Zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/></svg>
+          <input type="search" id="search" placeholder="Buscar productos" aria-label="Buscar en la carta" />
+        </label>
       </div>
 
-      <div class="container">
-        <div class="menu__head">
-          <h2 class="title">Nuestra carta</h2>
-          <label class="search">
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2Zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/></svg>
-            <input type="search" id="search" placeholder="Busca tu antojo… (ej. alitas, tocino)" aria-label="Buscar en la carta" />
-          </label>
+      <div class="menu-layout">
+        <aside class="menu-side" aria-label="Categorías">
+          <h3>Categorías</h3>
+          <ul id="sideCats"></ul>
+        </aside>
+        <div class="menu-main">
+          <div class="cat-chips" id="catChips" aria-label="Categorías"></div>
+          <div id="menuSections"></div>
+          <p class="menu__empty" id="menuEmpty" hidden>No encontramos productos con esa búsqueda.</p>
         </div>
-
-        <div id="menuSections"></div>
-        <p class="menu__empty" id="menuEmpty" hidden>No encontramos platos con esa búsqueda. 🍕</p>
       </div>
     </section>
 
     <!-- ===== CÓMO PEDIR ===== -->
-    <section class="steps" id="como-pedir">
+    <section class="section section--gray" id="como-pedir">
       <div class="container">
-        <h2 class="title title--light">¿Cómo pedir?</h2>
-        <ol class="steps__list">
-          <li><span class="steps__num">1</span><h3>Elige</h3><p>Arma tu pedido desde la carta y agrégalo al carrito.</p></li>
-          <li><span class="steps__num">2</span><h3>Confirma</h3><p>Indica si es delivery o recojo y envía tu pedido por WhatsApp.</p></li>
-          <li><span class="steps__num">3</span><h3>Paga con Yape</h3><p>Yapea al <strong>923 433 817</strong> a nombre de Miriam Solis P. o paga en efectivo.</p></li>
-          <li><span class="steps__num">4</span><h3>¡Disfruta!</h3><p>Sabor que se comparte, recién hecho para ti.</p></li>
+        <h2 class="section__title section__title--center">¿Cómo pedir?</h2>
+        <ol class="steps">
+          <li><span class="steps__icon">🍕</span><h3>1. Elige tus productos</h3><p>Navega por la carta y agrega lo que quieras al carrito.</p></li>
+          <li><span class="steps__icon">📍</span><h3>2. Delivery o recojo</h3><p>Indica tu dirección o recoge tu pedido en tienda.</p></li>
+          <li><span class="steps__icon">💜</span><h3>3. Paga con Yape</h3><p>Yapea al 923 433 817 (Miriam Solis P.) o paga en efectivo.</p></li>
+          <li><span class="steps__icon">💬</span><h3>4. Confirma por WhatsApp</h3><p>Te enviamos la confirmación y el tiempo de entrega.</p></li>
         </ol>
       </div>
     </section>
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <div class="checker" aria-hidden="true"></div>
   <footer class="footer" id="contacto">
     <div class="container footer__inner">
-      <div class="footer__brand">
-        <img src="assets/img/logo.png" alt="Pizzas D'Barrio" width="110" height="110" loading="lazy" />
-        <p>Pizzas · Broaster · Burgers<br />¡Sabor que se comparte!</p>
+      <div class="footer__col footer__brand">
+        <img src="assets/img/logo.png" alt="Pizzas D'Barrio" width="96" height="96" loading="lazy" />
+        <p>Pizzas · Broaster · Burgers.<br />¡Sabor que se comparte!</p>
       </div>
-      <div>
-        <h3>Pedidos</h3>
+      <div class="footer__col">
+        <h3>Nuestra carta</h3>
+        <ul id="footerCats"></ul>
+      </div>
+      <div class="footer__col">
+        <h3>Atención al cliente</h3>
         <ul>
-          <li><a href="https://wa.me/51923433817" target="_blank" rel="noopener">WhatsApp: 923 433 817</a></li>
-          <li><a href="tel:+51923433817">Llamar: 923 433 817</a></li>
-          <li><a href="assets/carta-dbarrio.pdf" target="_blank" rel="noopener">Carta en PDF</a></li>
+          <li><a href="#como-pedir">¿Cómo pedir?</a></li>
+          <li><a href="assets/carta-dbarrio.pdf" target="_blank" rel="noopener">Descargar carta (PDF)</a></li>
+          <li><a href="https://wa.me/51923433817" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></li>
         </ul>
       </div>
-      <div>
-        <h3>Paga con Yape</h3>
+      <div class="footer__col">
+        <h3>Contáctanos</h3>
+        <ul>
+          <li><a href="tel:+51923433817">📞 923 433 817</a></li>
+          <li><a href="https://wa.me/51923433817" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+        </ul>
         <div class="yape-card">
           <span class="yape-card__logo">yape</span>
-          <div>
-            <strong>923 433 817</strong>
-            <small>Miriam Solis P.</small>
-          </div>
+          <div><strong>923 433 817</strong><small>Miriam Solis P.</small></div>
         </div>
       </div>
     </div>
-    <p class="footer__copy">© <span id="year"></span> Pizzas D'Barrio. Todos los derechos reservados.</p>
+    <div class="footer__bottom">
+      <div class="container">© <span id="year"></span> Pizzas D'Barrio. Todos los derechos reservados.</div>
+    </div>
   </footer>
 
   <!-- ===== CARRITO ===== -->
   <div class="overlay" id="overlay" hidden></div>
-  <aside class="drawer" id="drawer" aria-label="Carrito de compras" aria-hidden="true">
+  <aside class="drawer" id="drawer" aria-label="Mi carrito" aria-hidden="true">
     <div class="drawer__head">
-      <h2>Tu pedido</h2>
-      <button class="icon-btn" id="cartClose" aria-label="Cerrar carrito">✕</button>
+      <h2>Mi carrito</h2>
+      <button class="close-btn" id="cartClose" aria-label="Cerrar carrito">✕</button>
     </div>
 
     <div class="drawer__body">
       <ul class="cart-list" id="cartList"></ul>
       <div class="cart-empty" id="cartEmpty">
         <div class="cart-empty__icon" data-icon="pizza"></div>
-        <p>Tu carrito está vacío.<br />¡Agrega algo rico de la carta!</p>
+        <p><b>Tu carrito está vacío</b><br />Agrega productos de nuestra carta.</p>
+        <button class="btn btn--red" id="goMenu" type="button">Ver carta</button>
       </div>
 
       <form class="checkout" id="checkout" hidden novalidate>
         <h3>Datos de entrega</h3>
         <div class="seg" role="radiogroup" aria-label="Tipo de pedido">
-          <label><input type="radio" name="mode" value="delivery" checked /><span>🛵 Delivery</span></label>
-          <label><input type="radio" name="mode" value="recojo" /><span>🏃 Recojo en tienda</span></label>
+          <label><input type="radio" name="mode" value="delivery" checked /><span>Delivery</span></label>
+          <label><input type="radio" name="mode" value="recojo" /><span>Recojo en tienda</span></label>
         </div>
         <label class="field"><span>Nombre</span><input name="name" required autocomplete="name" placeholder="¿A nombre de quién?" /></label>
         <label class="field"><span>Celular</span><input name="phone" required inputmode="tel" autocomplete="tel" placeholder="9XX XXX XXX" /></label>
         <label class="field" id="addressField"><span>Dirección</span><input name="address" autocomplete="street-address" placeholder="Calle, número, referencia" /></label>
 
-        <h3>Pago</h3>
+        <h3>Método de pago</h3>
         <div class="seg" role="radiogroup" aria-label="Método de pago">
           <label><input type="radio" name="pay" value="Yape" checked /><span>Yape</span></label>
           <label><input type="radio" name="pay" value="Efectivo" /><span>Efectivo</span></label>
         </div>
         <div class="yape-box" id="yapeBox">
-          <div>
-            <small>Yapea a</small>
-            <strong>923 433 817</strong>
-            <small>Miriam Solis P.</small>
-          </div>
-          <button type="button" class="btn btn--sm btn--outline" id="copyYape">Copiar número</button>
+          <div><small>Yapea a</small><strong>923 433 817</strong><small>Miriam Solis P.</small></div>
+          <button type="button" class="btn btn--sm btn--white" id="copyYape">Copiar</button>
         </div>
         <label class="field" id="cashField" hidden><span>¿Con cuánto pagas?</span><input name="cash" inputmode="decimal" placeholder="Ej. 50" /></label>
-        <label class="field"><span>Notas (opcional)</span><textarea name="notes" rows="2" placeholder="Sin cebolla, cremas aparte, etc."></textarea></label>
+        <label class="field"><span>Comentarios (opcional)</span><textarea name="notes" rows="2" placeholder="Sin cebolla, cremas aparte, etc."></textarea></label>
         <p class="form-error" id="formError" role="alert" hidden></p>
       </form>
     </div>
 
     <div class="drawer__foot" id="drawerFoot" hidden>
-      <div class="total"><span>Total</span><strong id="cartTotal">S/ 0.00</strong></div>
+      <div class="total"><span>Total a pagar</span><strong id="cartTotal">S/ 0.00</strong></div>
       <p class="total__note" id="totalNote" hidden>* Algunos productos tienen precio por confirmar.</p>
-      <button class="btn btn--wa btn--block btn--lg" id="sendOrder" type="submit" form="checkout">Enviar pedido por WhatsApp</button>
+      <button class="btn btn--red btn--block btn--lg" id="sendOrder" type="submit" form="checkout">Realizar pedido por WhatsApp</button>
       <button class="link-btn" id="clearCart" type="button">Vaciar carrito</button>
     </div>
   </aside>
 
-  <!-- ===== MODAL PIZZA ===== -->
-  <div class="modal" id="sizeModal" hidden role="dialog" aria-modal="true" aria-labelledby="sizeTitle">
+  <!-- ===== DETALLE DE PRODUCTO ===== -->
+  <div class="modal" id="productModal" hidden role="dialog" aria-modal="true" aria-labelledby="pmTitle">
     <div class="modal__box">
-      <button class="icon-btn modal__close" id="sizeClose" aria-label="Cerrar">✕</button>
-      <div class="modal__art" data-icon="pizza"></div>
-      <h3 id="sizeTitle"></h3>
-      <p id="sizeDesc"></p>
-      <div class="size-options" id="sizeOptions"></div>
-      <div class="qty qty--lg">
-        <button type="button" id="sizeMinus" aria-label="Menos">−</button>
-        <span id="sizeQty">1</span>
-        <button type="button" id="sizePlus" aria-label="Más">+</button>
+      <button class="close-btn modal__close" id="pmClose" aria-label="Cerrar">✕</button>
+      <div class="modal__img" id="pmImg"></div>
+      <div class="modal__content">
+        <span class="modal__cat" id="pmCat"></span>
+        <h3 id="pmTitle"></h3>
+        <p id="pmDesc"></p>
+        <div id="pmSizesWrap">
+          <h4>Elige el tamaño</h4>
+          <div class="size-options" id="pmSizes"></div>
+        </div>
+        <div class="modal__price" id="pmPrice"></div>
       </div>
-      <button class="btn btn--red btn--block btn--lg" id="sizeAdd">Agregar</button>
+      <div class="modal__foot">
+        <div class="qty qty--lg">
+          <button type="button" id="pmMinus" aria-label="Menos">−</button>
+          <span id="pmQty">1</span>
+          <button type="button" id="pmPlus" aria-label="Más">+</button>
+        </div>
+        <button class="btn btn--red btn--lg" id="pmAdd">Agregar</button>
+      </div>
     </div>
   </div>
 
